@@ -129,7 +129,6 @@ void AGreenhouseBase::Destroyed()
 	}
 }
 
-
 void AGreenhouseBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -305,14 +304,12 @@ FTransform AGreenhouseBase::GetCellTransform(int32 CellID) const
 	return GetActorTransform() + FTransform(FVector(CellX, CellY, 0.0));
 }
 
-
 void AGreenhouseBase::HandleCellStateChange(int32 CellID, ECellState OldState, ECellState NewState)
 {
 	OnUpdateCell.Broadcast(CellID);
 	
 	K2_HandleCellStateChange(CellID, OldState, NewState);
 }
-
 
 void AGreenhouseBase::GetPlantStats(TMap<UPlantData*, FGreenhousePlantStat>& OutPlantStat, int32& OutFreeCellCount)
 {
